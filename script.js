@@ -86,7 +86,7 @@ function appendToTable(index){
 
     //add read status toggle button
     let newReadToggleBtn = document.createElement('button');
-    newReadToggleBtn.textContent='Toggle Read Status';
+    newReadToggleBtn.textContent='Toggle Read';
     newReadToggleBtn.setAttribute('class', 'read_toggle_btn');
     newReadToggleBtn.setAttribute('id', index);
     newReadToggleBtn.addEventListener('click', function(e) {
@@ -102,7 +102,7 @@ function appendToTable(index){
 
     //add row delete button
     let newDeleteRowBtn = document.createElement('button');
-    newDeleteRowBtn.textContent='Delete Entry';
+    newDeleteRowBtn.textContent='Delete';
     newDeleteRowBtn.setAttribute('class', 'del_row_btn');
     newDeleteRowBtn.setAttribute('id', index);
     newDeleteRowBtn.addEventListener('click', function(e) {
@@ -114,8 +114,9 @@ function appendToTable(index){
     cell6.appendChild(newDeleteRowBtn);
 }
 
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkein', 310, 'yes');
-addBookToLibrary("Ender's Game", 'Orson Scott Card', 324, 'yes');
-addBookToLibrary('Moby Dick', 'Herman Melville', 427, 'no');
+addBookToLibrary('The Miracle of Mindfulness', 'Thich Nhat Hanh', 102, 'no');
+addBookToLibrary('Bird by Bird', 'Anne Lamott', 274, 'no');
+addBookToLibrary('Shogun', 'James Clavell', 1231, 'yes');
+addBookToLibrary('Radical Acceptance', 'Tara Brach', 352, 'yes');
 
 populateTable();

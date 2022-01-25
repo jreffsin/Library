@@ -17,30 +17,33 @@
         <th class="button_column"></th>
         <th class="button_column"></th>
     </table>
-    <form id='form'>
-        <div>
-            <label>Title</label>
-            <input type='text' name='title' class='book_submission'>
-        </div>
-        <div>
-            <label>Author</label>
-            <input type='text' name='author' class='book_submission'>
-        </div>
-        <div>
-            <label>Pages</label>
-            <input type='text' name='pages' class='book_submission'>
-        </div>
-        <div>
-            <label>Read?</label>
-            <select name='read' class='book_submission'>
-                <option value='' selected>Select</option>
-                <option value='yes'>yes</option>
-                <option value='no'>no</option>
-            </select>
-            <!-- <input type='text' name='read' class='book_submission'> -->
-        </div>
-    </form>
-    <button id='submit_btn'>Submit</button>
+    <div id='form_cont'>
+        <h2 id='submission_title'>Add a Book</h2>
+        <form id='form'>
+            <div>
+                <label>Title</label>
+                <input type='text' name='title' class='book_submission'>
+            </div>
+            <div>
+                <label>Author</label>
+                <input type='text' name='author' class='book_submission'>
+            </div>
+            <div>
+                <label>Pages</label>
+                <input type='text' name='pages' class='book_submission'>
+            </div>
+            <div>
+                <!-- <label>Read?</label> -->
+                <select name='read' class='book_submission'>
+                    <option value='' selected>Read?</option>
+                    <option value='yes'>yes</option>
+                    <option value='no'>no</option>
+                </select>
+                <!-- <input type='text' name='read' class='book_submission'> -->
+            </div>
+        </form>
+        <button id='submit_btn'>Submit</button>
+    </div>
 
 
 </body>
