@@ -68,6 +68,7 @@ function appendToTable(index){
     let table = document.getElementById('libaryTable');
     let row = table.insertRow(-1);
     row.setAttribute('id', `row${index}`);
+    row.setAttribute('class', 'row');
 
     //fill row with book data
     let cell1 = row.insertCell(0);
@@ -78,6 +79,7 @@ function appendToTable(index){
     cell3.textContent = myLibrary[index].pages;
     let cell4 = row.insertCell(3);
     cell4.setAttribute('id', `read_status${index}`);
+    cell4.setAttribute('class', 'read_status');
     if (myLibrary[index].read == 'yes') {
         cell4.textContent = 'yes';
     } else {
@@ -109,9 +111,24 @@ function appendToTable(index){
         let targetRow = document.getElementById(`row${this.id}`);
         targetRow.remove();
         myLibrary.splice(index, 1);
+        updateIds();
     })
     let cell6 = row.insertCell(5);
     cell6.appendChild(newDeleteRowBtn);
+}
+
+function updateIds() {
+    let rows = document.getElementsByClassName('row');
+    let delBtns = document.getElementsByClassName('del_row_btn');
+    let readBtns = document.getElementsByClassName('read_toggle_btn');
+    let readStatus = document.getElementsByClassName('read_status');
+
+    for (let i=0; i<rows.length; i++) {
+        rows[i].setAttribute('id', `row${i}`);
+        delBtns[i].setAttribute('id', i);
+        readBtns[i].setAttribute('id', i);
+        readStatus[i].setAttribute('id', `read_status${i}`);
+    }
 }
 
 addBookToLibrary('The Miracle of Mindfulness', 'Thich Nhat Hanh', 102, 'no');
