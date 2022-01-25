@@ -1,8 +1,4 @@
-//next things todo:
-//make it so that ids of rows and cells change when rows are deleted
-//(otherwise deleting a row will cause display table and myLibrary array to be out of sync, 
-//which will be a problem once user has ability to add elements themselves)
-
+//script for library project
 
 let myLibrary = [];
 let tableRowElements = 6;
@@ -38,21 +34,25 @@ function updateTable(){
 function updateLibraryArray() {
     let form = document.getElementById('form');
     let formData = new FormData(form);
+    let i = 0;
     for (let value of formData.entries()) {
         if (value[1] == ''){
             alert('Must fill in all fields!');
             return false;
+        } else if (i == 2){
+            if (parseInt(value[1]) <= 0 || parseFloat(value[1]) % 1 != 0) {
+                alert('Page count must be a whole number greater than zero!');
+                return false;
+            }
         }
+        i++;
     }
     let title = formData.get('title');
     let author = formData.get('author');
     let pages = formData.get('pages');
     let read = formData.get('read');
-
     addBookToLibrary(title, author, pages, read);
-
     clearInputs();
-
     return true;
 }
 
@@ -122,7 +122,6 @@ function updateIds() {
     let delBtns = document.getElementsByClassName('del_row_btn');
     let readBtns = document.getElementsByClassName('read_toggle_btn');
     let readStatus = document.getElementsByClassName('read_status');
-
     for (let i=0; i<rows.length; i++) {
         rows[i].setAttribute('id', `row${i}`);
         delBtns[i].setAttribute('id', i);
